@@ -78,6 +78,13 @@ projeto-final-front-end/
     ├── assets/           # Recursos estáticos
     │   └── img/          # Imagens
     ├── components/       # Componentes React
+    │   ├── layout/       # Componentes de layout
+    │   │   ├── Container.js        # Componente de container
+    │   │   ├── Container.module.css # Estilos do container
+    │   │   ├── Footer.js           # Componente de rodapé
+    │   │   ├── Footer.module.css   # Estilos do rodapé
+    │   │   ├── Navbar.js           # Componente de navegação
+    │   │   └── Navbar.module.css   # Estilos da navegação
     │   └── pages/        # Páginas da aplicação
     │       ├── Auth/     # Componentes de autenticação
     │       │   ├── Login.js    # Página de login
