@@ -77,7 +77,12 @@ projeto-final-front-end/
     ├── index.css         # Estilos globais
     ├── assets/           # Recursos estáticos
     │   └── img/          # Imagens
+    │       └── logo.png  # Logo da aplicação
     ├── components/       # Componentes React
+    │   ├── form/         # Componentes de formulário
+    │   │   ├── Form.module.css     # Estilos de formulário
+    │   │   ├── Input.js            # Componente de input
+    │   │   └── Input.module.css    # Estilos do input
     │   ├── layout/       # Componentes de layout
     │   │   ├── Container.js        # Componente de container
     │   │   ├── Container.module.css # Estilos do container
