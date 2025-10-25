@@ -4,23 +4,28 @@ import styles from "../../form/Form.module.css";
 import { Link } from "react-router-dom";
 
 function Register() {
-    const [value, setValue] = useState("");
+    const [user, setUser] = useState({});
 
     const handleOnChange = (e) => {
-        setValue(e.target.value);
+        setUser({ ...user, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // enviar usuario para o banco
+        console.log(user);
     };
 
     return (
         <section className={styles.form_container}>
             <h1>Cadastro</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
                     text="Nome"
                     name="name"
                     placeholder="Digite seu nome"
                     handleOnChange={handleOnChange}
-                    value={value}
                 />
                 <Input
                     type="text"
@@ -28,7 +33,6 @@ function Register() {
                     name="cpf"
                     placeholder="Digite seu CPF"
                     handleOnChange={handleOnChange}
-                    value={value}
                 />
                 <Input
                     type="email"
@@ -36,7 +40,6 @@ function Register() {
                     name="email"
                     placeholder="Digite seu email"
                     handleOnChange={handleOnChange}
-                    value={value}
                 />
                 <Input
                     type="password"
@@ -44,7 +47,6 @@ function Register() {
                     name="password"
                     placeholder="Digite sua senha"
                     handleOnChange={handleOnChange}
-                    value={value}
                 />
                 <Input
                     type="password"
@@ -52,7 +54,6 @@ function Register() {
                     name="confirmPassword"
                     placeholder="Confirme sua senha"
                     handleOnChange={handleOnChange}
-                    value={value}
                 />
                 <input type="submit" value="Cadastrar" />
             </form>
