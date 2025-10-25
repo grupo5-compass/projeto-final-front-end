@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Input from "../../form/Input";
+import styles from "../../form/Form.module.css";
+import { Link } from "react-router-dom";
 
 function Register() {
     const [value, setValue] = useState("");
@@ -9,7 +11,7 @@ function Register() {
     };
 
     return (
-        <div>
+        <section className={styles.form_container}>
             <h1>Cadastro</h1>
             <form>
                 <Input
@@ -17,6 +19,14 @@ function Register() {
                     text="Nome"
                     name="name"
                     placeholder="Digite seu nome"
+                    handleOnChange={handleOnChange}
+                    value={value}
+                />
+                <Input
+                    type="text"
+                    text="CPF"
+                    name="cpf"
+                    placeholder="Digite seu CPF"
                     handleOnChange={handleOnChange}
                     value={value}
                 />
@@ -46,7 +56,10 @@ function Register() {
                 />
                 <input type="submit" value="Cadastrar" />
             </form>
-        </div>
+            <p>
+                Já tem uma conta? <Link to="/login">Faça login</Link>
+            </p>
+        </section>
     );
 }
 export default Register;
