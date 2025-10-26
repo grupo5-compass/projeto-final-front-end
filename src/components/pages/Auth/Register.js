@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Input from "../../form/Input";
 import styles from "../../form/Form.module.css";
 import { Link } from "react-router-dom";
 
+/* Contexts */
+import { Context } from "../../../context/UserContext";
+
 function Register() {
     const [user, setUser] = useState({});
+    const { register } = useContext(Context);
 
     const handleOnChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -14,6 +18,7 @@ function Register() {
         e.preventDefault();
         // enviar usuario para o banco
         console.log(user);
+        register(user);
     };
 
     return (
@@ -23,7 +28,7 @@ function Register() {
                 <Input
                     type="text"
                     text="Nome"
-                    name="name"
+                    name="nome"
                     placeholder="Digite seu nome"
                     handleOnChange={handleOnChange}
                 />
@@ -44,7 +49,7 @@ function Register() {
                 <Input
                     type="password"
                     text="Senha"
-                    name="password"
+                    name="senha"
                     placeholder="Digite sua senha"
                     handleOnChange={handleOnChange}
                 />
