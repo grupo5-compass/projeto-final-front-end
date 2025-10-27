@@ -1,91 +1,136 @@
-# OpenCard - Open Finance Frontend
+# Projeto Final Front-End - Open Finance
 
-Uma aplicação frontend moderna desenvolvida em React para o ecossistema Open Finance, focada em fornecer uma interface intuitiva para gestão de cartões e serviços financeiros.
+Este projeto é uma aplicação front-end desenvolvida para o projeto final de estágio relacionado ao Open Finance.
 
-## 🚀 Tecnologias Principais
+## Tecnologias Utilizadas
 
--   **React** 19.2.0 - Biblioteca para construção de interfaces
--   **React Router DOM** 7.9.4 - Roteamento client-side
--   **Axios** 1.12.2 - Cliente HTTP para comunicação com APIs
--   **React Icons** 5.5.0 - Biblioteca de ícones
--   **CSS Modules** - Estilização modular e isolada
+-   **React** (v19.2.0) - Biblioteca para construção de interfaces de usuário
+-   **React Router DOM** (v7.9.4) - Roteamento para aplicações React
+-   **Axios** (v1.12.2) - Cliente HTTP para requisições à API
+-   **React Icons** (v5.5.0) - Biblioteca de ícones para React
+-   **CSS Modules** - Para estilização modular dos componentes
 
-## 📋 Pré-requisitos
+## Requisitos
 
--   **Node.js** 18.x ou superior
--   **npm** ou **yarn**
+-   Node.js (versão recomendada: 18.x ou superior)
+-   npm ou yarn
 
-## ⚡ Início Rápido
+## Como Instalar
 
-### 1. Clonagem e Instalação
+1. Clone o repositório:
 
 ```bash
-# Clone o repositório
 git clone https://github.com/grupo5-compass/projeto-final-front-end.git
 cd projeto-final-front-end
+```
 
-# Instale as dependências
+2. Instale as dependências:
+
+```bash
 npm install
+# ou
+yarn install
 ```
 
-### 2. Configuração
+3. Configure as variáveis de ambiente:
 
 ```bash
-# Copie o arquivo de exemplo das variáveis de ambiente
 cp .env.example .env
-
-# Configure a URL da API no arquivo .env
-# REACT_APP_API_URL='http://localhost:5001'
 ```
 
-### 3. Execução
+Edite o arquivo `.env` com as configurações necessárias:
+
+-   `REACT_APP_API_URL`: URL da API backend (padrão: http://localhost:5001)
+
+## Como Executar
+
+### Ambiente de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento:
 
 ```bash
-# Ambiente de desenvolvimento
 npm start
-
-# Build para produção
-npm run build
+# ou
+yarn start
 ```
 
 A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-## 📚 Documentação Técnica
+### Build para Produção
 
-Para informações detalhadas sobre arquitetura, configuração e desenvolvimento, consulte nossa [**documentação técnica completa**](./docs/README.md).
-
-### Links Rápidos
-
--   **[Arquitetura do Projeto](./docs/arquitetura.md)** - Estrutura e padrões utilizados
--   **[Guia de Configuração](./docs/configuracao.md)** - Variáveis de ambiente e setup
--   **[Componentes](./docs/componentes.md)** - Documentação dos componentes React
-
-## 🏗️ Estrutura Resumida
-
-```
-src/
-├── components/          # Componentes React reutilizáveis
-│   ├── form/           # Componentes de formulário
-│   ├── layout/         # Componentes de layout (Header, Footer, etc.)
-│   └── pages/          # Páginas da aplicação
-├── context/            # Contextos React (gerenciamento de estado)
-├── hooks/              # Hooks personalizados
-└── utils/              # Funções utilitárias e configurações
-```
-
-## 🧪 Scripts Disponíveis
+Para criar uma versão otimizada para produção:
 
 ```bash
-npm start      # Inicia o servidor de desenvolvimento
-npm run build  # Cria build otimizado para produção
-npm test       # Executa os testes
-npm run eject  # Ejeta as configurações do Create React App
+npm run build
+# ou
+yarn build
 ```
 
-## 📄 Licença
+Os arquivos serão gerados na pasta `build`.
 
-Este projeto está licenciado sob a [Licença MIT](./LICENSE).
+### Executar Testes
 
----
+Para executar os testes:
 
-**Desenvolvido por:** [Grupo 5 - Compass](https://github.com/grupo5-compass)
+```bash
+npm test
+# ou
+yarn test
+```
+
+## Scripts Disponíveis
+
+-   `npm start` - Inicia o servidor de desenvolvimento
+-   `npm run build` - Cria build de produção
+-   `npm test` - Executa os testes
+-   `npm run eject` - Ejeta a configuração do Create React App (irreversível)
+
+## Estrutura de Pastas
+
+```
+projeto-final-front-end/
+├── .env                  # Variáveis de ambiente
+├── .env.example          # Exemplo de variáveis de ambiente
+├── .gitignore            # Arquivos ignorados pelo git
+├── LICENSE               # Licença do projeto
+├── README.md             # Documentação do projeto
+├── package.json          # Dependências e scripts
+├── package-lock.json     # Versões exatas das dependências
+├── public/               # Arquivos públicos
+│   ├── favicon.ico       # Ícone da aplicação
+│   └── index.html        # HTML principal
+└── src/                  # Código fonte
+    ├── App.js            # Componente principal
+    ├── index.js          # Ponto de entrada da aplicação
+    ├── index.css         # Estilos globais
+    ├── assets/           # Recursos estáticos
+    │   └── img/          # Imagens
+    │       └── logo.png  # Logo da aplicação
+    ├── components/       # Componentes React
+    │   ├── form/         # Componentes de formulário
+    │   │   ├── Form.module.css     # Estilos de formulário
+    │   │   ├── Input.js            # Componente de input
+    │   │   └── Input.module.css    # Estilos do input
+    │   ├── layout/       # Componentes de layout
+    │   │   ├── Container.js        # Componente de container
+    │   │   ├── Container.module.css # Estilos do container
+    │   │   ├── Footer.js           # Componente de rodapé
+    │   │   ├── Footer.module.css   # Estilos do rodapé
+    │   │   ├── Message.js          # Componente de mensagens
+    │   │   ├── Message.module.css  # Estilos das mensagens
+    │   │   ├── Navbar.js           # Componente de navegação
+    │   │   └── Navbar.module.css   # Estilos da navegação
+    │   └── pages/        # Páginas da aplicação
+    │       ├── Auth/     # Componentes de autenticação
+    │       │   ├── Login.js    # Página de login
+    │       │   └── Register.js # Página de registro
+    │       └── Home.js   # Página inicial
+    ├── context/          # Contextos React
+    │   └── UserContext.js # Contexto de usuário
+    ├── hooks/            # Hooks personalizados
+    │   ├── useAuth.js    # Hook de autenticação
+    │   └── useFlashMessage.js # Hook para mensagens flash
+    └── utils/            # Funções utilitárias
+        ├── api.js        # Configuração da API
+        └── bus.js        # Sistema de eventos
+```
