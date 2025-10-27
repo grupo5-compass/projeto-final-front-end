@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import Input from "../../form/Input";
+import PasswordInput from "../../form/PasswordInput";
 import styles from "../../form/Form.module.css";
 import { Link } from "react-router-dom";
 
@@ -32,12 +33,13 @@ function Login() {
                     placeholder="Digite seu email"
                     handleOnChange={handleOnChange}
                 />
-                <Input
-                    type="password"
+                <PasswordInput
                     text="Senha"
                     name="senha"
                     placeholder="Digite sua senha"
                     handleOnChange={handleOnChange}
+                    value={user.senha || ""}
+                    showValidation={false}
                 />
                 <input type="submit" value="Entrar" />
             </form>

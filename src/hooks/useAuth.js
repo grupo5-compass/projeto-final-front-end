@@ -70,5 +70,18 @@ export default function useAuth() {
         navigate("/");
     }
 
-    return { authenticated, register, login };
+    // Função responsável pela logout
+    function logout() {
+        let msgTxt = "Logout realizado com sucesso!";
+        let msgType = "success";
+
+        setAuthenticated(false);
+        localStorage.removeItem("token");
+        api.defaults.headers.Authorization = undefined;
+        navigate("/login");
+
+        setFlashMessage(msgTxt, msgType);
+    }
+
+    return { authenticated, register, login, logout };
 }
