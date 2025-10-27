@@ -77,10 +77,14 @@ export default function useAuth() {
 
         setAuthenticated(false);
         localStorage.removeItem("token");
+
         api.defaults.headers.Authorization = undefined;
+
         navigate("/login");
 
         setFlashMessage(msgTxt, msgType);
+        console.log("authenticated:", setAuthenticated(false));
+        console.log("token:", api.defaults.headers.Authorization);
     }
 
     return { authenticated, register, login, logout };
