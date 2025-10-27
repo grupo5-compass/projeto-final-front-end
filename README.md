@@ -1,101 +1,91 @@
-# Projeto Final Front-End - Open Finance
+# OpenCard - Open Finance Frontend
 
-Este projeto é uma aplicação front-end desenvolvida para o projeto final de estágio relacionado ao Open Finance.
+Uma aplicação frontend moderna desenvolvida em React para o ecossistema Open Finance, focada em fornecer uma interface intuitiva para gestão de cartões e serviços financeiros.
 
-## Requisitos
+## 🚀 Tecnologias Principais
 
--   Node.js (versão recomendada: 18.x ou superior)
--   npm ou yarn
+-   **React** 19.2.0 - Biblioteca para construção de interfaces
+-   **React Router DOM** 7.9.4 - Roteamento client-side
+-   **Axios** 1.12.2 - Cliente HTTP para comunicação com APIs
+-   **React Icons** 5.5.0 - Biblioteca de ícones
+-   **CSS Modules** - Estilização modular e isolada
 
-## Como Instalar
+## 📋 Pré-requisitos
 
-1. Clone o repositório:
+-   **Node.js** 18.x ou superior
+-   **npm** ou **yarn**
+
+## ⚡ Início Rápido
+
+### 1. Clonagem e Instalação
 
 ```bash
+# Clone o repositório
 git clone https://github.com/grupo5-compass/projeto-final-front-end.git
 cd projeto-final-front-end
-```
 
-2. Instale as dependências:
-
-```bash
+# Instale as dependências
 npm install
-# ou
-yarn install
 ```
 
-3. Configure as variáveis de ambiente:
+### 2. Configuração
 
 ```bash
+# Copie o arquivo de exemplo das variáveis de ambiente
 cp .env.example .env
+
+# Configure a URL da API no arquivo .env
+# REACT_APP_API_URL='http://localhost:5001'
 ```
 
-Edite o arquivo `.env` com as configurações necessárias.
-
-## Como Executar
-
-### Ambiente de Desenvolvimento
-
-Para iniciar o servidor de desenvolvimento:
+### 3. Execução
 
 ```bash
+# Ambiente de desenvolvimento
 npm start
-# ou
-yarn start
+
+# Build para produção
+npm run build
 ```
 
 A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-### Build para Produção
+## 📚 Documentação Técnica
 
-Para criar uma versão otimizada para produção:
+Para informações detalhadas sobre arquitetura, configuração e desenvolvimento, consulte nossa [**documentação técnica completa**](./docs/README.md).
+
+### Links Rápidos
+
+-   **[Arquitetura do Projeto](./docs/arquitetura.md)** - Estrutura e padrões utilizados
+-   **[Guia de Configuração](./docs/configuracao.md)** - Variáveis de ambiente e setup
+-   **[Componentes](./docs/componentes.md)** - Documentação dos componentes React
+
+## 🏗️ Estrutura Resumida
+
+```
+src/
+├── components/          # Componentes React reutilizáveis
+│   ├── form/           # Componentes de formulário
+│   ├── layout/         # Componentes de layout (Header, Footer, etc.)
+│   └── pages/          # Páginas da aplicação
+├── context/            # Contextos React (gerenciamento de estado)
+├── hooks/              # Hooks personalizados
+└── utils/              # Funções utilitárias e configurações
+```
+
+## 🧪 Scripts Disponíveis
 
 ```bash
-npm run build
-# ou
-yarn build
+npm start      # Inicia o servidor de desenvolvimento
+npm run build  # Cria build otimizado para produção
+npm test       # Executa os testes
+npm run eject  # Ejeta as configurações do Create React App
 ```
 
-Os arquivos serão gerados na pasta `build`.
+## 📄 Licença
 
-## Estrutura de Pastas
+Este projeto está licenciado sob a [Licença MIT](./LICENSE).
 
-```
-projeto-final-front-end/
-├── .env                  # Variáveis de ambiente
-├── .env.example          # Exemplo de variáveis de ambiente
-├── .gitignore            # Arquivos ignorados pelo git
-├── LICENSE               # Licença do projeto
-├── README.md             # Documentação do projeto
-├── package.json          # Dependências e scripts
-├── package-lock.json     # Versões exatas das dependências
-├── public/               # Arquivos públicos
-│   └── index.html        # HTML principal
-└── src/                  # Código fonte
-    ├── App.js            # Componente principal
-    ├── index.js          # Ponto de entrada da aplicação
-    ├── index.css         # Estilos globais
-    ├── assets/           # Recursos estáticos
-    │   └── img/          # Imagens
-    │       └── logo.png  # Logo da aplicação
-    ├── components/       # Componentes React
-    │   ├── form/         # Componentes de formulário
-    │   │   ├── Form.module.css     # Estilos de formulário
-    │   │   ├── Input.js            # Componente de input
-    │   │   └── Input.module.css    # Estilos do input
-    │   ├── layout/       # Componentes de layout
-    │   │   ├── Container.js        # Componente de container
-    │   │   ├── Container.module.css # Estilos do container
-    │   │   ├── Footer.js           # Componente de rodapé
-    │   │   ├── Footer.module.css   # Estilos do rodapé
-    │   │   ├── Navbar.js           # Componente de navegação
-    │   │   └── Navbar.module.css   # Estilos da navegação
-    │   └── pages/        # Páginas da aplicação
-    │       ├── Auth/     # Componentes de autenticação
-    │       │   ├── Login.js    # Página de login
-    │       │   └── Register.js # Página de registro
-    │       └── Home.js   # Página inicial
-    ├── context/          # Contextos React
-    ├── hooks/            # Hooks personalizados
-    └── utils/            # Funções utilitárias
-```
+---
+
+**Desenvolvido por:** [Grupo 5 - Compass](https://github.com/grupo5-compass)
