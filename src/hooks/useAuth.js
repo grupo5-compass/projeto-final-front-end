@@ -23,7 +23,7 @@ export default function useAuth() {
         let msgType = "success";
 
         try {
-            const data = await api.post("/api/user", user).then((response) => {
+            const data = await api.post("/user", user).then((response) => {
                 return response.data;
             });
 
@@ -45,7 +45,7 @@ export default function useAuth() {
         let msgType = "success";
 
         try {
-            const data = await api.post("/api/auth", user).then((response) => {
+            const data = await api.post("/auth", user).then((response) => {
                 return response.data;
             });
 
@@ -80,7 +80,7 @@ export default function useAuth() {
 
         api.defaults.headers.Authorization = undefined;
 
-        navigate("/api/login");
+        navigate("/login");
 
         setFlashMessage(msgTxt, msgType);
         console.log("authenticated:", setAuthenticated(false));

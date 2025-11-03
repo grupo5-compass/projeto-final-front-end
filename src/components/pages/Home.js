@@ -8,7 +8,7 @@ function Home() {
         const token = localStorage.getItem("token");
 
         if (token) {
-            api.get("/api/checkUser", {
+            api.get("/checkUser", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
