@@ -11,10 +11,10 @@
     margin-top: 20px;
     border-radius: 4px;
     border: none;
-    background-color: #0F172B;
+    background-color: #3BBE73;
     font-size: 17px;
     font-weight: bold;
-    color: #BEDBFF;
+    color: white;
     min-width: 100px;
     min-height: 40px;
     width: 100%;
@@ -22,9 +22,9 @@
 }
 
 .form_container input[type='submit']:hover {
-    background-color: #BEDBFF;
-    color: #0F172B;
-    border: 0.5px solid #0F172B;
+    background-color: #7FCCB2;
+    color: white;
+    border: 0.5px ;
 }
 
 .form_container p {
@@ -39,6 +39,7 @@
 
 .form_container h1 {
     margin-bottom: 25px;
+    color: #012d1b;
 }
 
 .error_message {

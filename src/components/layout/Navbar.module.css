@@ -4,8 +4,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 24px;
-    background-color: #0F172B;
-    color: #BEDBFF;
+    background-color: #3BBE73;
+    color: white;
 }
 
 .navbar_logo {
@@ -15,7 +15,7 @@
 }
 
 .navbar_logo_img {
-    width: 40px;
+    width: 80px;
 }
 
 .navbar ul {
@@ -28,7 +28,7 @@
 .navbar li,
 .navbar a {
     text-decoration: none;
-    color: #BEDBFF;
+    color: white;
     font-weight: 500;
     cursor: pointer;
     transition: 0.5s;
@@ -37,9 +37,9 @@
 }
 
 .navbar li:hover {
-    background-color: #BEDBFF;
+    background-color: #7FCCB2;
 }
 
 .navbar li:hover>a {
-    color: #0F172B;
+    color: white;
 }

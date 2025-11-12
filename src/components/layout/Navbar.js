@@ -11,11 +11,11 @@ function Navbar() {
         <nav className={styles.navbar}>
             <div className={styles.navbar_logo}>
                 <img
-                    src={Logo}
+                    src="logo2.png"
                     className={styles.navbar_logo_img}
                     alt="OpenCard"
                 />
-                <h2>OpenCard</h2>
+                <h2>COMCREDIT</h2>
             </div>
             <ul>
                 {authenticated ? (
