@@ -10,12 +10,12 @@
 
 .navbar_logo {
     display: flex;
-    gap: 8px;
+    gap: 7px;
     align-items: center;
 }
 
 .navbar_logo_img {
-    width: 80px;
+    width: 65px;
 }
 
 .navbar ul {
