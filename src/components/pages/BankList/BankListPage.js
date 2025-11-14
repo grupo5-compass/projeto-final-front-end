@@ -52,8 +52,8 @@ function handleConnect() {
       </header>  
 
       <div className="banklist-card">
-        <p className="banklist-subtitle">Gostaria de permitir o compartilhamento de dados financeiros? </p>
-        <p className="banklist-text">Lista de bancos disponíveis:</p>
+        <p className="banklist-subtitle">Selecione abaixo as instituições financeiras que deseja conectar. </p>
+        <p className="banklist-text">Bancos disponíveis:</p>
       
       <ul className="banklist-list">
         {banks.map((bank) => (
