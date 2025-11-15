@@ -27,11 +27,11 @@ function App() {
     }       
 function MainContent(){
     const location = useLocation();
-    const hideLayout = location.pathname === "/banklist";
+    const hideLayout = ["/login", "/register"].includes(location.pathname);
 
     return(
     <UserProvider>
-         {/* só mostra o Navbar e o footer se não estivermos na /banklist */}
+        {/* só mostra o Navbar se não estivermos nas rotas públicas */}
          {!hideLayout && <Navbar />}
          
          <Message />
@@ -45,7 +45,7 @@ function MainContent(){
             </Routes>
          </Container>
          
-         {!hideLayout && <Footer />}
+        <Footer />
     </UserProvider>
     );
 }

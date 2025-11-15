@@ -56,9 +56,10 @@ function Register() {
     };
 
     return (
-        <section className={styles.form_container}>
-            <h1>Cadastro</h1>
-            <form onSubmit={handleSubmit}>
+        <section className={styles.auth_page}>
+            <div className={styles.form_card}>
+                <h1>Cadastro</h1>
+                <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
                     text="Nome"
@@ -107,6 +108,7 @@ function Register() {
             <p>
                 Já tem uma conta? <Link to="/login">Faça login</Link>
             </p>
+            </div>
         </section>
     );
 }

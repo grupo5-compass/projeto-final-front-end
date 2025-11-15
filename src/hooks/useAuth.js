@@ -67,6 +67,7 @@ export default function useAuth() {
     async function authUser(data) {
         setAuthenticated(true);
         localStorage.setItem("token", data.token);
+        api.defaults.headers.Authorization = `Bearer ${data.token}`;
         navigate("/");
     }
 
