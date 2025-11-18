@@ -68,7 +68,7 @@ export default function useAuth() {
         setAuthenticated(true);
         localStorage.setItem("token", data.token);
         api.defaults.headers.Authorization = `Bearer ${data.token}`;
-        navigate("/");
+        navigate("/user/dashboard");
     }
 
     // Função responsável pela logout
@@ -81,7 +81,7 @@ export default function useAuth() {
 
         api.defaults.headers.Authorization = undefined;
 
-        navigate("/login");
+        navigate("/");
 
         setFlashMessage(msgTxt, msgType);
         console.log("authenticated:", setAuthenticated(false));

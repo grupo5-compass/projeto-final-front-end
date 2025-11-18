@@ -24,8 +24,8 @@ function Login() {
 
     return (
         <section className={styles.auth_page}>
+            <h1 className={styles.page_title}>Login</h1>
             <div className={styles.form_card}>
-                <h1>Login</h1>
                 <form onSubmit={handleSubmit}>
                 <Input
                     type="email"

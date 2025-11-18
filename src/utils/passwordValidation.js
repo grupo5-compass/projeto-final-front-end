@@ -30,7 +30,7 @@ export const validatePassword = (password) => {
     }
     
     if (!checks.special) {
-        errors.push("Deve conter pelo menos um caractere especial");
+        errors.push("Deve conter pelo menos um caractere especial: @$!%*?&");
     }
 
     return {

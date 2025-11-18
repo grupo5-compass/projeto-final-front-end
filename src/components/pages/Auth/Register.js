@@ -35,7 +35,7 @@ function Register() {
         setPasswordValid(isValid);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
         // Verificar se a senha é válida
@@ -52,13 +52,19 @@ function Register() {
         
         // enviar usuario para o banco
         console.log(user);
-        register(user);
+        await register(user);
+        
+        // Limpar campos e resetar formulário após cadastro
+        e.target.reset();
+        setUser({});
+        setPasswordValid(false);
+        setPasswordError("");
     };
 
     return (
         <section className={styles.auth_page}>
+            <h1 className={styles.page_title}>Cadastro</h1>
             <div className={styles.form_card}>
-                <h1>Cadastro</h1>
                 <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -105,7 +111,7 @@ function Register() {
                 )}
                 <input type="submit" value="Cadastrar" />
             </form>
-            <p>
+                <p>
                 Já tem uma conta? <Link to="/login">Faça login</Link>
             </p>
             </div>

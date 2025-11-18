@@ -1,0 +1,149 @@
+.dashboard {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+    margin-bottom: 2rem;
+}
+
+.greeting {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2a37;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.transactions {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 30px 50px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(0, 152, 105, 0.08);
+}
+
+.transactionsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.transactionsHeader h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+    color: #1a1a1a;
+}
+
+.transactionsHeader p {
+    color: #6b7280;
+}
+
+.linkButton {
+    background: transparent;
+    border: 2px solid #009869;
+    color: #009869;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.linkButton:hover {
+    background: #009869;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 152, 105, 0.25);
+}
+
+.transactions ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.transactions li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.transactions li:hover {
+    border-color: rgba(0, 152, 105, 0.2);
+    transform: translateY(-1px);
+}
+
+.txnIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #e3f8f0;
+    color: #0f9f6e;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+}
+
+.txnBody {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.txnBody strong {
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+.txnBody span {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.txnAmount {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+@media (max-width: 768px) {
+    .greeting {
+        font-size: 1.5rem;
+    }
+
+    .cardsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .transactionsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+

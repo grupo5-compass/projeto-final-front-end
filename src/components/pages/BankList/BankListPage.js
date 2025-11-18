@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ComCardLogo } from "../../ui/ComCardLogo";
 
 import styles from "./BankListPage.module.css";
 
@@ -39,11 +40,7 @@ function BankListPage() {
             <div className={styles.card}>
                 <header className={styles.header}>
                     <div className={styles.logoWrapper}>
-                        <img
-                            src="logo2.png"
-                            alt="Logo ComCredit"
-                            className={styles.logo}
-                        />
+                        <ComCardLogo variant="dark" size={72} showText={false} />
                     </div>
                     <div>
                         <h2>Selecione as instituições que deseja conectar</h2>

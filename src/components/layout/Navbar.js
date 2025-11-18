@@ -1,29 +1,34 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/img/logo.png";
+import { ComCardLogo } from '../ui/ComCardLogo';
+
 import styles from "./Navbar.module.css";
 import { Context } from "../../context/UserContext";
 
 function Navbar() {
     const { authenticated, logout } = useContext(Context);
 
+
     return (
         <nav className={styles.navbar}>
             <div className={styles.navbar_logo}>
-                <img
-                    src="logo2.png"
-                    className={styles.navbar_logo_img}
-                    alt="OpenCard"
-                />
-                <h2>COMCREDIT</h2>
+                <ComCardLogo variant="dark" size={56} showText={true} />
             </div>
             <ul>
                 {authenticated ? (
                     <>
                         <li>
+                            <Link to="/user/dashboard">Dashboard</Link>
+                        </li>
+                        <li>
                             <Link to="/user/profile">Perfil</Link>
                         </li>
-                        <li onClick={logout}>Sair</li>
+                        <li>
+                            <Link to="/user/mycards">Meus Cartões</Link>
+                        </li>
+                        <li className={styles.logout} onClick={logout}>
+                            Sair
+                        </li>
                     </>
                 ) : (
                     <>

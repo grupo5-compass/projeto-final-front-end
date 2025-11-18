@@ -14,10 +14,6 @@
     align-items: center;
 }
 
-.navbar_logo_img {
-    width: 65px;
-}
-
 .navbar ul {
     display: flex;
     align-items: center;
@@ -42,4 +38,9 @@
 
 .navbar li:hover>a {
     color: white;
+}
+
+.navbar li.logout {
+    color: #f5b93f;
+    font-weight: 600;
 }

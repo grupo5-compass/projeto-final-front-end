@@ -1,8 +1,8 @@
 import api from "../../../utils/api";
 import { useState, useEffect } from "react";
 import { PiUserCircleCheckDuotone } from "react-icons/pi";
-import styles from "./Profile.module.css";
 import { Link } from "react-router-dom";
+import styles from "./Profile.module.css";
 
 function Profile() {
     const [user, setUser] = useState({});
@@ -71,7 +71,7 @@ function Profile() {
                 </div>
             </div>
             <div className={styles.backButtonContainer}>
-                <Link to="/">Voltar para o inicio</Link>
+                <Link to="/user/dashboard">Voltar para o inicio</Link>
             </div>
         </section>
     );
