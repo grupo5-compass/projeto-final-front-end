@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 /* Components */
 import Footer from "./components/layout/Footer";
@@ -18,31 +18,25 @@ import BankListPage from "./components/pages/BankList/BankListPage";
 /* Contexts */
 import { UserProvider } from "./context/UserContext";
 
-function MainContent(){
-    return (
-        <UserProvider>
-            <Navbar />
-            <Message />
-            <Container>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/user/dashboard" element={<Dashboard />} />
-                    <Route path="/user/profile" element={<Profile />} />
-                    <Route path="/user/mycards" element={<MyCards />} />
-                    <Route path="/banklist" element={<BankListPage/>} />
-                </Routes>
-            </Container>
-            <Footer />
-        </UserProvider>
-    );
-}
-
 function App() {
     return (
         <Router>
-            <MainContent />
+            <UserProvider>
+                <Navbar />
+                <Message />
+                <Container>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/user/dashboard" element={<Dashboard />} />
+                        <Route path="/user/profile" element={<Profile />} />
+                        <Route path="/user/mycards" element={<MyCards />} />
+                        <Route path="/banklist" element={<BankListPage />} />
+                    </Routes>
+                </Container>
+                <Footer />
+            </UserProvider>
         </Router>
     );
 }
