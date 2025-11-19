@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
     FiTrendingUp,
     FiCreditCard,
@@ -6,7 +5,7 @@ import {
     FiArrowUpRight,
 } from "react-icons/fi";
 
-import api from "../../../utils/api";
+import useCurrentUser from "../../../hooks/useCurrentUser";
 import SummaryCard from "../../ui/SummaryCard";
 import styles from "./Dashboard.module.css";
 
@@ -81,33 +80,7 @@ const transactions = [
 ];
 
 function Dashboard() {
-    const [user, setUser] = useState({});
-
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-
-        if (token) {
-            api.get("/checkUser", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((response) => {
-                    setUser(response.data);
-                })
-                .catch((error) => {
-                    console.error("Erro ao buscar dados do usuário:", error);
-                    // Se houver erro de autenticação, redirecionar para login
-                    if (error.response?.status === 401) {
-                        localStorage.removeItem("token");
-                        window.location.href = "/login";
-                    }
-                });
-        } else {
-            // Se não há token, redirecionar para login
-            window.location.href = "/login";
-        }
-    }, []);
+    const { user, token, loading, error } = useCurrentUser();
 
     return (
         <section className={styles.dashboard}>

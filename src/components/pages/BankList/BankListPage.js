@@ -1,20 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ComCardLogo } from "../../ui/ComCardLogo";
+import api from "../../../utils/api";
+import useCurrentUser from "../../../hooks/useCurrentUser";
+import useFlashMessage from "../../../hooks/useFlashMessage";
 
 import styles from "./BankListPage.module.css";
 
-const banks = [
-    { id: 1, name: "Banco do Brasil" },
-    { id: 2, name: "Caixa Econômica Federal" },
-    { id: 3, name: "Itaú" },
-    { id: 4, name: "Bradesco" },
-    { id: 5, name: "Nubank" },
-];
-
 function BankListPage() {
     const [selectedBanks, setSelectedBanks] = useState([]);
+    const [myBanks, setMyBanks] = useState([]);
+    const { token } = useCurrentUser();
+    const { setFlashMessage } = useFlashMessage();
     const navigate = useNavigate();
+    const fetchedRef = useRef(false);
+
+    useEffect(() => {
+        if (!token || fetchedRef.current) return;
+        fetchedRef.current = true;
+
+        api.get("/institutions/me", {
+            headers: { Authorization: `Bearer ${token}` },
+        })
+            .then((response) => {
+                setMyBanks(response.data);
+            })
+            .catch((error) => {
+                const msg =
+                    error?.response?.data?.message ||
+                    error?.response?.data?.err ||
+                    "Erro ao buscar instituições.";
+                setFlashMessage(msg, "error");
+            });
+    }, [token]);
+
+    const banks = myBanks.map((inst) => ({
+        id: inst.id ?? inst._id,
+        name: inst.nome ?? inst.name,
+    }));
 
     function handleSelectBank(bankId) {
         if (selectedBanks.includes(bankId)) {
@@ -30,8 +53,9 @@ function BankListPage() {
             return;
         }
 
+        // futura função post para pausar compartilhamento de instituições
         console.log("Bancos selecionados:", selectedBanks);
-        navigate("/connected");
+        navigate("/");
     }
 
     return (
@@ -40,7 +64,11 @@ function BankListPage() {
             <div className={styles.card}>
                 <header className={styles.header}>
                     <div className={styles.logoWrapper}>
-                        <ComCardLogo variant="dark" size={72} showText={false} />
+                        <ComCardLogo
+                            variant="dark"
+                            size={72}
+                            showText={false}
+                        />
                     </div>
                     <div>
                         <h2>Selecione as instituições que deseja conectar</h2>
@@ -65,8 +93,12 @@ function BankListPage() {
                                 <label>
                                     <input
                                         type="checkbox"
-                                        checked={selectedBanks.includes(bank.id)}
-                                        onChange={() => handleSelectBank(bank.id)}
+                                        checked={selectedBanks.includes(
+                                            bank.id
+                                        )}
+                                        onChange={() =>
+                                            handleSelectBank(bank.id)
+                                        }
                                     />
                                     <span>{bank.name}</span>
                                 </label>
