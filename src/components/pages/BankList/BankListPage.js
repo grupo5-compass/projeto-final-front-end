@@ -49,13 +49,16 @@ function BankListPage() {
 
     function handleConnect() {
         if (selectedBanks.length === 0) {
-            alert("Por favor, selecione ao menos um banco antes de continuar!");
+            setFlashMessage(
+                "Por favor, selecione ao menos um banco antes de continuar!",
+                "error"
+            );
             return;
         }
 
         // futura função post para pausar compartilhamento de instituições
-        console.log("Bancos selecionados:", selectedBanks);
-        navigate("/");
+        setFlashMessage("Instituições conectadas com sucesso", "success");
+        navigate("/user/dashboard");
     }
 
     return (
