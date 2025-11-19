@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ComCardLogo } from '../ui/ComCardLogo';
+import { ComCardLogo } from "../ui/ComCardLogo";
 
 import styles from "./Navbar.module.css";
 import { Context } from "../../context/UserContext";
@@ -8,12 +8,21 @@ import { Context } from "../../context/UserContext";
 function Navbar() {
     const { authenticated, logout } = useContext(Context);
 
+    const redirect = () => {
+        if (authenticated) {
+            return "/user/dashboard";
+        } else {
+            return "/";
+        }
+    };
 
     return (
         <nav className={styles.navbar}>
-            <div className={styles.navbar_logo}>
-                <ComCardLogo variant="dark" size={56} showText={true} />
-            </div>
+            <Link to={redirect()}>
+                <div className={styles.navbar_logo}>
+                    <ComCardLogo variant="dark" size={56} showText={true} />
+                </div>
+            </Link>
             <ul>
                 {authenticated ? (
                     <>
