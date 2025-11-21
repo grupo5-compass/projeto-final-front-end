@@ -1,37 +1,10 @@
-import api from "../../../utils/api";
-import { useState, useEffect } from "react";
 import { PiUserCircleCheckDuotone } from "react-icons/pi";
-import styles from "./Profile.module.css";
 import { Link } from "react-router-dom";
+import styles from "./Profile.module.css";
+import useCurrentUser from "../../../hooks/useCurrentUser";
 
 function Profile() {
-    const [user, setUser] = useState({});
-
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-
-        if (token) {
-            api.get("/checkUser", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((response) => {
-                    setUser(response.data);
-                })
-                .catch((error) => {
-                    console.error("Erro ao buscar dados do usuário:", error);
-                    // Se houver erro de autenticação, redirecionar para login
-                    if (error.response?.status === 401) {
-                        localStorage.removeItem("token");
-                        window.location.href = "/login";
-                    }
-                });
-        } else {
-            // Se não há token, redirecionar para login
-            window.location.href = "/login";
-        }
-    }, []);
+    const { user } = useCurrentUser();
 
     return (
         <section>
@@ -71,7 +44,7 @@ function Profile() {
                 </div>
             </div>
             <div className={styles.backButtonContainer}>
-                <Link to="/">Voltar para o inicio</Link>
+                <Link to="/user/dashboard">Voltar para o inicio</Link>
             </div>
         </section>
     );

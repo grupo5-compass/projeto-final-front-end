@@ -4,18 +4,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 24px;
-    background-color: #0F172B;
-    color: #BEDBFF;
+    background-color: #1f9a60;
+    color: white;
 }
 
 .navbar_logo {
     display: flex;
-    gap: 8px;
+    gap: 7px;
     align-items: center;
-}
-
-.navbar_logo_img {
-    width: 40px;
 }
 
 .navbar ul {
@@ -28,7 +24,7 @@
 .navbar li,
 .navbar a {
     text-decoration: none;
-    color: #BEDBFF;
+    color: white;
     font-weight: 500;
     cursor: pointer;
     transition: 0.5s;
@@ -37,9 +33,14 @@
 }
 
 .navbar li:hover {
-    background-color: #BEDBFF;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .navbar li:hover>a {
-    color: #0F172B;
+    color: white;
+}
+
+.navbar li.logout {
+    color: #f5b93f;
+    font-weight: 600;
 }

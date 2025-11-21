@@ -23,9 +23,10 @@ function Login() {
     };
 
     return (
-        <section className={styles.form_container}>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+        <section className={styles.auth_page}>
+            <h1 className={styles.page_title}>Login</h1>
+            <div className={styles.form_card}>
+                <form onSubmit={handleSubmit}>
                 <Input
                     type="email"
                     text="Email"
@@ -41,11 +42,12 @@ function Login() {
                     value={user.senha || ""}
                     showValidation={false}
                 />
-                <input type="submit" value="Entrar" />
-            </form>
-            <p>
-                Ainda não tem uma conta? <Link to="/register">Cadastre-se</Link>
-            </p>
+                    <input type="submit" value="Entrar" />
+                </form>
+                <p>
+                    Ainda não tem uma conta? <Link to="/register">Cadastre-se</Link>
+                </p>
+            </div>
         </section>
     );
 }

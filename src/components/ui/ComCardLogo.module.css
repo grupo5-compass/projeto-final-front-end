@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.brandRow {
+    display: flex;
+    align-items: baseline;
+}
+
+.brandText {
+    font-size: calc(var(--logo-size, 64px) * 0.46875);
+    letter-spacing: -0.025em;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.1;
+}
+
+.brandPrimary {
+    color: #059669;
+    font-weight: 300;
+}
+
+.brandPrimaryDark {
+    color: #ffffff;
+}
+
+.brandAccent {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.brandAccentDark {
+    color: #fbbf24;
+}
+
+.tagline {
+    font-size: calc(var(--logo-size, 64px) * 0.1875);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6b7280;
+    opacity: 0.7;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.taglineDark {
+    color: #ffffff;
+    opacity: 0.85;
+}
+

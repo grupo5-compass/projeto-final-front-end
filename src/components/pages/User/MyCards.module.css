@@ -1,0 +1,55 @@
+.cta {
+    align-self: flex-end;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem 2.2rem;
+    background: transparent;
+    color: #0f9f6e;
+    border: 2px solid #0f9f6e;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(15, 159, 110, 0.12),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+.cta:hover::before {
+    left: 100%;
+}
+
+.cta:hover {
+    background: #0f9f6e;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(15, 159, 110, 0.25);
+}
+
+.cta:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(15, 159, 110, 0.18);
+}
+
+@media (max-width: 768px) {
+    .cta {
+        width: 100%;
+        align-self: stretch;
+    }
+}

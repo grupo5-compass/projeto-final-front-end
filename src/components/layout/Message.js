@@ -3,28 +3,31 @@ import bus from "../../utils/bus";
 import styles from "./Message.module.css";
 
 function Message() {
-    const [visible, setVisible] = useState(false);
-    const [message, setMessage] = useState("");
-    const [type, setType] = useState("");
+    const [toasts, setToasts] = useState([]);
 
     useEffect(() => {
-        bus.addListener("flash", ({ message, type }) => {
-            setVisible(true);
-            setMessage(message);
-            setType(type);
-
+        const listener = ({ message, type }) => {
+            const id = Date.now();
+            setToasts((prev) => [...prev, { id, message, type }]);
             setTimeout(() => {
-                setVisible(false);
+                setToasts((prev) => prev.filter((t) => t.id !== id));
             }, 3000);
-        });
+        };
+
+        bus.addListener("flash", listener);
+        return () => {
+            if (bus.removeListener) bus.removeListener("flash", listener);
+        };
     }, []);
 
     return (
-        visible && (
-            <div className={`${styles.message} ${styles[type]}`}>
-                <p>{message}</p>
-            </div>
-        )
+        <div className={styles.toastContainer}>
+            {toasts.map((t) => (
+                <div key={t.id} className={`${styles.toast} ${styles[t.type]}`}>
+                    <p>{t.message}</p>
+                </div>
+            ))}
+        </div>
     );
 }
 

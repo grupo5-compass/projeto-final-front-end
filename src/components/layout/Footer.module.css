@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
     padding: 16px 24px;
-    background-color: #0F172B;
-    color: #BEDBFF;
+    background-color: #1f9a60;
+    color: #ffffff;
+}
+
+.footer span {
+    color: #ffffff;
 }
