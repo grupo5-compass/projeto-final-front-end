@@ -14,23 +14,23 @@ export const validatePassword = (password) => {
     };
 
     if (!checks.length) {
-        errors.push("Deve ter pelo menos 8 caracteres");
+        errors.push("Pelo menos 8 caracteres");
     }
     
     if (!checks.uppercase) {
-        errors.push("Deve conter pelo menos uma letra maiúscula");
+        errors.push("Pelo menos uma letra maiúscula");
     }
     
     if (!checks.lowercase) {
-        errors.push("Deve conter pelo menos uma letra minúscula");
+        errors.push("Pelo menos uma letra minúscula");
     }
     
     if (!checks.number) {
-        errors.push("Deve conter pelo menos um número");
+        errors.push("Pelo menos um número");
     }
     
     if (!checks.special) {
-        errors.push("Deve conter pelo menos um caractere especial: @$!%*?&");
+        errors.push("Pelo menos um caractere especial: @$!%*?&");
     }
 
     return {
