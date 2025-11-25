@@ -1,42 +1,32 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ComCardLogo } from "../../ui/ComCardLogo";
-import api from "../../../utils/api";
+import { PiBankDuotone } from "react-icons/pi";
 import useCurrentUser from "../../../hooks/useCurrentUser";
 import useVisibilityPrefs from "../../../hooks/useVisibilityPrefs";
 import useFlashMessage from "../../../hooks/useFlashMessage";
+import useInstitutions from "../../../hooks/useInstitutions";
 
 import styles from "./BankListPage.module.css";
 
 function BankListPage() {
-    const [myBanks, setMyBanks] = useState([]);
     const { user, token } = useCurrentUser();
     const { setFlashMessage } = useFlashMessage();
     const navigate = useNavigate();
-    const fetchedRef = useRef(false);
     const [modal, setModal] = useState({ open: false, bankId: null, action: null });
     const { getStatus, setStatus } = useVisibilityPrefs(user?.email || user?.nome || "user");
+    const { institutions, error } = useInstitutions(token);
 
     useEffect(() => {
-        if (!token || fetchedRef.current) return;
-        fetchedRef.current = true;
+        if (!error) return;
+        const msg =
+            error?.response?.data?.message ||
+            error?.response?.data?.err ||
+            "Erro ao buscar instituições.";
+        setFlashMessage(msg, "error");
+    }, [error, setFlashMessage]);
 
-        api.get("/institutions/me", {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then((response) => {
-                setMyBanks(response.data);
-            })
-            .catch((error) => {
-                const msg =
-                    error?.response?.data?.message ||
-                    error?.response?.data?.err ||
-                    "Erro ao buscar instituições.";
-                setFlashMessage(msg, "error");
-            });
-    }, [token]);
-
-    const banks = myBanks.map((inst) => ({
+    const banks = institutions.map((inst) => ({
         id: inst.id ?? inst._id,
         name: inst.nome ?? inst.name,
         status: getStatus(inst.id ?? inst._id),
@@ -108,12 +98,17 @@ function BankListPage() {
                                 }`}
                             >
                                 <div className={styles.bankRow}>
-                                    <span className={styles.bankName}>{bank.name}</span>
+                                    <div className={styles.bankInfo}>
+                                        <div className={styles.bankIcon}>
+                                            <PiBankDuotone size={20} />
+                                        </div>
+                                        <span className={styles.bankName}>{bank.name}</span>
+                                    </div>
                                     <span className={`${styles.statusBadge} ${
                                         bank.status === "active"
                                             ? styles.statusActive
                                             : bank.status === "paused"
-                                            ? styles.statusPaused
+                                                ? styles.statusPaused
                                             : styles.statusHidden
                                     }`}>
                                         {bank.status === "active" && "Ativo"}
