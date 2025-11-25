@@ -106,6 +106,107 @@
     font-weight: 400;
 }
 
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(0, 152, 105, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cardDanger {
+    background: #fff7f7;
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.cardIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #e3f8f0;
+    color: #0f9f6e;
+    display: grid;
+    place-items: center;
+}
+
+.cardIconDanger {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #ffe4e6;
+    color: #ef4444;
+    display: grid;
+    place-items: center;
+}
+
+.cardTitle {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.cardText {
+    color: #6b7280;
+}
+
+.cardActions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.primaryBtn {
+    padding: 0.6rem 1rem;
+    background: #0f9f6e;
+    color: #ffffff;
+    border: 2px solid #0f9f6e;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.secondaryBtn {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    color: #0f5ddb;
+    border: 2px solid #0f5ddb;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dangerBtn {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    color: #ef4444;
+    border: 2px solid #ef4444;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .profileContainer {
@@ -252,6 +353,32 @@
         padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
     }
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modalActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
 }
 
 @media (max-width: 480px) {
