@@ -133,19 +133,105 @@
     background: #f1fbf6;
 }
 
-.item label {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    color: #1f2937;
-    font-weight: 500;
+.itemPaused {
+    border-color: rgba(241, 154, 42, 0.35);
+    background: #fff7ed;
 }
 
-.item input {
-    width: 18px;
-    height: 18px;
-    accent-color: #009869;
+.itemHidden {
+    border-color: rgba(15, 93, 219, 0.25);
+    background: #eef2ff;
+    opacity: 0.85;
+}
+
+.bankRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.bankName {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.statusActive {
+    background: #e3f8f0;
+    color: #0f9f6e;
+}
+
+.statusPaused {
+    background: #fff3e6;
+    color: #f19a2a;
+}
+
+.statusHidden {
+    background: #e9f4ff;
+    color: #0f5ddb;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.65rem;
+}
+
+.actionButton {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    color: #0f9f6e;
+    border: 2px solid #0f9f6e;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+    background: #0f9f6e;
+    color: #ffffff;
+}
+
+.actionPauseButton {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    color: #f19a2a;
+    border: 2px solid #f19a2a;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.actionPauseButton:hover {
+    background: #f19a2a;
+    color: #ffffff;
+}
+
+.actionButtonDanger {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    color: #ff0033;
+    border: 2px solid #ff0033;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.actionButtonDanger:hover {
+    background: #ff0033;
+    color: #ffffff;
 }
 
 .cta {
@@ -196,6 +282,60 @@
 .cta:active {
     transform: translateY(0);
     box-shadow: 0 4px 10px rgba(15, 159, 110, 0.18);
+}
+
+.secondaryCta {
+    align-self: flex-end;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem 2.2rem;
+    background: transparent;
+    color: #0f5ddb;
+    border: 2px solid #0f5ddb;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondaryCta:hover {
+    background: #0f5ddb;
+    color: #ffffff;
+}
+
+.footerActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modalActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
