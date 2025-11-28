@@ -1,3 +1,14 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .landing {
     display: flex;
     flex-direction: column;
@@ -7,15 +18,26 @@
     padding: 3rem 2rem;
     margin: 0 auto;
     width: 100%;
-    max-width: 960px;
+    max-width: 990px;
     flex: 1;
     min-height: 0;
+    animation: fadeInUp 0.6s ease-out;
 }
+
+.landing > * {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.landing > *:nth-child(1) { animation-delay: 0.1s; }
+.landing > *:nth-child(2) { animation-delay: 0.2s; }
+.landing > *:nth-child(3) { animation-delay: 0.3s; }
+.landing > *:nth-child(4) { animation-delay: 0.4s; }
 
 .title {
     font-size: clamp(1.75rem, 3.5vw, 2.25rem);
     font-weight: 700;
-    color: #1a1a1a;
+    color: #ffffff;
     margin: 2rem 0 1rem;
     line-height: 1.3;
     max-width: 800px;
@@ -23,7 +45,7 @@
 
 .subtitle {
     font-size: clamp(1rem, 2vw, 1.125rem);
-    color: #6b7280;
+    color: #ebebeb;
     margin-bottom: 2.5rem;
     line-height: 1.6;
     max-width: 700px;
@@ -39,38 +61,40 @@
 
 .primaryButton {
     padding: 1rem 2.5rem;
-    background: #1f9a60;
-    color: #ffffff;
-    font-weight: 600;
+    background: #fbbf24;
+    color: #0f172a;
+    font-weight: 700;
     font-size: 1.05rem;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.2s ease;
-    border: none;
+    transition: all 0.3s ease;
+    border: 2px solid #fbbf24;
 }
 
 .primaryButton:hover {
-    background: #1a8550;
+    background: #f59e0b;
+    border-color: #f59e0b;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(31, 154, 96, 0.3);
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4);
 }
 
 .secondaryButton {
     padding: 1rem 2.5rem;
     background: transparent;
-    color: #1f9a60;
+    color: #ffffff;
     font-weight: 600;
     font-size: 1.05rem;
-    border: 2px solid #1f9a60;
+    border: 2px solid #ffffff;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .secondaryButton:hover {
-    background: #1f9a60;
-    color: #ffffff;
+    background: #ffffff;
+    color: #047857;
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {

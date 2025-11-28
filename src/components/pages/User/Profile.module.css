@@ -1,396 +1,495 @@
+.profileContainer {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.5rem 2rem 2rem 2rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .title {
-    font-size: 2.5rem;
-    color: #1a1a1a;
-    margin-bottom: 3rem;
+    font-size: 1.75rem;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
     text-align: center;
     letter-spacing: -0.02em;
     position: relative;
 }
 
 .title::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -0.5rem;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
     height: 2px;
-    background: linear-gradient(90deg, #009869, #00b377);
+    background: linear-gradient(90deg, #059669, #10b981);
     border-radius: 1px;
 }
 
-.userCard {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 152, 105, 0.1);
-    transition: all 0.3s ease;
+.subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-.userCard:hover {
+/* Grid Principal */
+.profileGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 0 auto 1.5rem auto;
+    align-items: stretch;
+}
+
+/* Card de Perfil do Usuário */
+.profileCard {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profileCard:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.userHeader {
+.profileHeader {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    padding: 2rem;
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    justify-content: center;
+    position: relative;
 }
 
-.iconWrapper {
+.avatarWrapper {
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #009869, #00b377);
-    border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(0, 152, 105, 0.3);
+    color: #9ca3af;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    bottom: -50px;
 }
 
-.userInfo {
-    flex: 1;
-}
-
-.welcomeText {
-    font-size: 1rem;
-    color: #6b7280;
-    margin: 0 0 0.25rem 0;
-    font-weight: 400;
+.profileBody {
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
 }
 
 .userName {
-    font-size: 1.75rem;
-    color: #1a1a1a;
-    margin: 0;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-
-.sectionTitle {
     font-size: 1.5rem;
-    font-weight: 500;
-    color: #1a1a1a;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #e5e7eb;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #d97706;
+    margin: 0 0 0.25rem 0;
 }
 
-.infoGrid {
-    display: grid;
-    gap: 1.25rem;
+.memberSince {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0 0 1.5rem 0;
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
 }
 
 .infoItem {
     display: flex;
-    align-items: center;
-    padding: 1rem;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
     background: #f9fafb;
+    border-radius: 10px;
+}
+
+.infoIcon {
+    width: 36px;
+    height: 36px;
+    background: #e5e7eb;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+    flex-shrink: 0;
+}
+
+.infoContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
 }
 
 .infoLabel {
+    font-size: 0.7rem;
     font-weight: 600;
-    color: #374151;
-    margin-right: 0.5rem;
-    min-width: 60px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .infoValue {
+    font-size: 0.95rem;
     color: #1f2937;
-    font-weight: 400;
+    font-weight: 500;
 }
 
-.cardsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+/* Coluna de Configurações */
+.settingsColumn {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
-    margin-bottom: 2rem;
+    height: 100%;
 }
 
-.card {
+.settingsCard {
     background: #ffffff;
-    border-radius: 14px;
+    border-radius: 16px;
     padding: 1.25rem;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-    border: 1px solid rgba(0, 152, 105, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cardDanger {
-    background: #fff7f7;
-    border-radius: 14px;
-    padding: 1.25rem;
-    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.35);
+.settingsCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.settingsHeader {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.cardHeader {
+.settingsIcon {
+    width: 44px;
+    height: 44px;
+    background: #dcfce7;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    justify-content: center;
+    color: #16a34a;
+    flex-shrink: 0;
 }
 
-.cardIcon {
-    width: 40px;
-    height: 40px;
+.settingsIconYellow {
+    width: 44px;
+    height: 44px;
+    background: #fef3c7;
     border-radius: 12px;
-    background: #e3f8f0;
-    color: #0f9f6e;
-    display: grid;
-    place-items: center;
-}
-
-.cardIconDanger {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: #ffe4e6;
-    color: #ef4444;
-    display: grid;
-    place-items: center;
-}
-
-.cardTitle {
-    font-weight: 600;
-    color: #1a1a1a;
-}
-
-.cardText {
-    color: #6b7280;
-}
-
-.cardActions {
     display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #d97706;
+    flex-shrink: 0;
 }
 
+.settingsInfo {
+    flex: 1;
+}
+
+.settingsTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+}
+
+.settingsText {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Card de Perigo */
+.dangerCard {
+    background: #fef2f2;
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid #fecaca;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dangerCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.15);
+}
+
+.dangerIcon {
+    width: 44px;
+    height: 44px;
+    background: #fee2e2;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dc2626;
+    flex-shrink: 0;
+}
+
+.dangerTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #dc2626;
+    margin: 0 0 0.25rem 0;
+}
+
+.dangerText {
+    font-size: 0.9rem;
+    color: #991b1b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Botões */
 .primaryBtn {
-    padding: 0.6rem 1rem;
-    background: #0f9f6e;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #047857;
     color: #ffffff;
-    border: 2px solid #0f9f6e;
+    border: none;
     border-radius: 10px;
     font-weight: 600;
+    font-size: 0.9rem;
     text-decoration: none;
     cursor: pointer;
+    transition: all 0.2s ease;
+    width: 200px;
 }
 
-.secondaryBtn {
-    padding: 0.6rem 1rem;
-    background: transparent;
-    color: #0f5ddb;
-    border: 2px solid #0f5ddb;
+.primaryBtn:hover {
+    background: #065f46;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.outlineBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
     cursor: pointer;
+    transition: all 0.2s ease;
+    width: 200px;
+}
+
+.outlineBtn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
 }
 
 .dangerBtn {
-    padding: 0.6rem 1rem;
-    background: transparent;
-    color: #ef4444;
-    border: 2px solid #ef4444;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #ffffff;
+    color: #dc2626;
+    border: 1px solid #fecaca;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
     cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 180px;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .profileContainer {
-        padding: 1rem;
-    }
-
-    .title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .userCard {
-        padding: 1.5rem;
-    }
-
-    .userHeader {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .iconWrapper {
-        width: 70px;
-        height: 70px;
-    }
-
-    .userName {
-        font-size: 1.5rem;
-    }
+.dangerBtn:hover {
+    background: #fef2f2;
+    border-color: #f87171;
 }
 
-@media (max-width: 480px) {
-    .profileContainer {
-        padding: 0.75rem;
-    }
-
-    .userCard {
-        padding: 1rem;
-    }
-
-    .iconWrapper {
-        width: 60px;
-        height: 60px;
-    }
-
-    .infoItem {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-    }
-
-    .infoLabel {
-        min-width: auto;
-        margin-right: 0;
-    }
+/* Botão Voltar */
+.backButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-/* Animações sutis */
+.backButton {
+    padding: 0.75rem 1.75rem;
+    background: #047857;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background: #065f46;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.25);
+}
+
+/* Modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin: 0 0 1rem 0;
+}
+
+.modal p {
+    color: #6b7280;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+}
+
+.modalActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modalActions .primaryBtn,
+.modalActions .outlineBtn,
+.modalActions .dangerBtn {
+    min-width: 140px;
+    flex: 1;
+    max-width: 180px;
+}
+
+/* Animação de entrada */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.profileContainer>* {
+.profileContainer > * {
     animation: fadeInUp 0.6s ease-out;
 }
 
-.userCard {
-    animation-delay: 0.1s;
-}
-
-.infoGrid {
-    animation-delay: 0.2s;
-}
-
-/* Estilos do botão minimalista */
-.backButtonContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-}
-
-.backButtonContainer a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 2rem;
-    background: transparent;
-    color: #009869;
-    text-decoration: none;
-    border: 2px solid #009869;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.01em;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.backButtonContainer a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 152, 105, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.backButtonContainer a:hover::before {
-    left: 100%;
-}
-
-.backButtonContainer a:hover {
-    background: #009869;
-    color: #ffffff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 152, 105, 0.3);
-}
-
-.backButtonContainer a:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 152, 105, 0.2);
-}
-
-/* Responsividade para o botão */
-@media (max-width: 768px) {
-    .backButtonContainer {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
+/* Responsivo */
+@media (max-width: 900px) {
+    .profileGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-    
-    .backButtonContainer a {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
+
+    .profileCard {
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
 
-.modalOverlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.modal {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 1.25rem;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.modalActions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: flex-end;
-    margin-top: 1rem;
-}
-
-@media (max-width: 480px) {
-    .backButtonContainer {
-        margin-top: 1rem;
-        padding-top: 1rem;
+@media (max-width: 600px) {
+    .profileContainer {
+        padding: 1rem;
     }
-    
-    .backButtonContainer a {
-        padding: 0.625rem 1.25rem;
-        font-size: 0.85rem;
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .buttonRow {
+        flex-direction: column;
+    }
+
+    .outlineBtn {
         width: 100%;
-        max-width: 200px;
+    }
+
+    .profileCard {
+        max-width: 100%;
+    }
+
+    .avatarWrapper {
+        width: 80px;
+        height: 80px;
+        bottom: -40px;
+    }
+
+    .avatarWrapper svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profileBody {
+        padding: 3rem 1rem 1rem 1rem;
+    }
+
+    .userName {
+        font-size: 1.25rem;
     }
 }

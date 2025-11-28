@@ -19,24 +19,31 @@ export default function useAuth() {
 
     // Função responsável pela chamada do cadastro
     async function register(user) {
-        let msgTxt = "Usuário criado com sucesso!";
+        let msgTxt = "Bem-vindo(a)! Sua conta foi criada com sucesso.";
         let msgType = "success";
 
         try {
-            const data = await api.post("/user", user).then((response) => {
-                return response.data;
-            });
+            // Cadastrar usuário
+            await api.post("/user", user);
 
-            // Teste de resposta da api
-            console.log(data);
+            // Fazer login automaticamente após cadastro
+            const loginData = await api.post("/auth", {
+                email: user.email,
+                senha: user.senha
+            }).then((response) => response.data);
+
+            // Autenticar e redirecionar para o dashboard
+            await authUser(loginData);
+            
+            setFlashMessage(msgTxt, msgType);
+            return; // Sair da função após sucesso
         } catch (error) {
             // tratar erro
             console.log(error);
-            msgTxt = error.response.data.message;
+            msgTxt = error.response?.data?.message || error.response?.data?.err || "Erro ao cadastrar";
             msgType = "error";
+            setFlashMessage(msgTxt, msgType);
         }
-
-        setFlashMessage(msgTxt, msgType);
     }
 
     // Função responsável pela chamada do login
@@ -56,7 +63,7 @@ export default function useAuth() {
         } catch (error) {
             // tratar erro
             console.log(error);
-            msgTxt = error.response.data.message;
+            msgTxt = error.response?.data?.message || error.response?.data?.err || "Erro ao fazer login";
             msgType = "error";
         }
 

@@ -15,12 +15,12 @@ function Home() {
 
     return (
         <section className={styles.landing}>
-            <ComCardLogo variant="primary" size={120} showText={true} />
+            <ComCardLogo variant="dark" size={120} showText={true} />
             <h1 className={styles.title}>
-                Gestão Inteligente de Cartões de Crédito
+            Todos os seus cartões em um único lugar.
             </h1>
             <p className={styles.subtitle}>
-                Controle seus gastos, acompanhe seus limites e gerencie suas finanças de forma simples e eficiente.
+            Monitore cartões de crédito e evite surpresas no fim do mês com a tecnologia do Open Finance.
             </p>
             <div className={styles.ctaButtons}>
                 <Link to="/register" className={styles.primaryButton}>

@@ -1,55 +1,422 @@
-.cta {
-    align-self: flex-end;
-    display: inline-flex;
+.page {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.5rem 2rem 2rem 2rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Animação de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page > * {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.footerActions {
+    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0.9rem 2.2rem;
-    background: transparent;
-    color: #0f9f6e;
-    border: 2px solid #0f9f6e;
-    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.backButton {
+    padding: 0.75rem 1.75rem;
+    background: #047857;
+    color: #ffffff;
+    border: 2px solid #047857;
+    border-radius: 12px;
     font-weight: 600;
-    letter-spacing: 0.01em;
+    font-size: 0.95rem;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backButton:hover {
+    background: #065f46;
+    border-color: #065f46;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.25);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-size: 1.75rem;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    letter-spacing: -0.02em;
     position: relative;
-    overflow: hidden;
-    text-decoration: none;
 }
 
-.cta::before {
-    content: "";
+.title::after {
+    content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(15, 159, 110, 0.12),
-            transparent);
-    transition: left 0.5s ease;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #059669, #10b981);
+    border-radius: 1px;
 }
 
-.cta:hover::before {
-    left: 100%;
+.description {
+    text-align: center;
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 1rem auto 1rem auto;
+    max-width: 700px;
+    line-height: 1.5;
+}
+
+.badgeWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.cardsCountBox {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+    white-space: nowrap;
+}
+
+.cardsCountLabel {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.02em;
+}
+
+.cardsCountNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fbbf24;
+    line-height: 1;
+}
+
+.cta {
+    display: block;
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: #047857;
+    border: 2px solid #047857;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    margin: 2rem auto 2rem auto;
+    text-align: center;
+    max-width: 250px;
 }
 
 .cta:hover {
-    background: #0f9f6e;
+    background: #047857;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(15, 159, 110, 0.25);
+    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.25);
 }
 
-.cta:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(15, 159, 110, 0.18);
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 1.5rem 0;
+}
+
+.helperText {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.cardWrapper {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cardWrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 2.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.cardIconWrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #e5e7eb;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cardHeaderInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.bankName {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #047857;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem 0;
+}
+
+.cardName {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+}
+
+.cardDetails {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.25rem 2.5rem 1.5rem 2.5rem;
+}
+
+.usageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.usageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.usageLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.usagePercent {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.progressBar {
+    width: 100%;
+    height: 8px;
+    background: #f3f4f6;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+.usageValues {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.usageSpent {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.usageTotal {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.availableSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0 0 0;
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    border-top: 1px solid #e5e7eb;
+    gap: 2rem;
+}
+
+.availableLabel {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.availableAmount {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #059669;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.emptyState {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #6b7280;
+    background: #f9fafb;
+    border-radius: 20px;
+    border: 2px dashed #e5e7eb;
+}
+
+.emptyState svg {
+    margin-bottom: 1rem;
+    opacity: 0.5;
+    color: #9ca3af;
+}
+
+.emptyState p {
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.ctaSecondary {
+    padding: 0.75rem 1.75rem;
+    background: #d97706;
+    color: #ffffff;
+    border: 2px solid #d97706;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+    background: #b45309;
+    border-color: #b45309;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);
 }
 
 @media (max-width: 768px) {
+    .page {
+        padding: 1.5rem 1rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+    }
+
+    .headerSection {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
     .cta {
         width: 100%;
-        align-self: stretch;
+        text-align: center;
+    }
+
+    .cardsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .cardWrapper {
+        padding: 0;
+    }
+
+    .cardHeader {
+        padding: 1.5rem;
+    }
+
+    .cardBody {
+        padding: 1.5rem;
+    }
+
+    .availableSection {
+        margin: 1.5rem -1.5rem -1.5rem -1.5rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .availableAmount {
+        font-size: 1.3rem;
     }
 }

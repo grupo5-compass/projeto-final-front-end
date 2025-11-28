@@ -10,11 +10,16 @@ function SummaryCard({
     bgColor = "#ffffff",
     textColor = "#0f172a",
     subtitleColor = "#6b7280",
+    borderColor,
 }) {
     return (
         <article
             className={styles.card}
-            style={{ backgroundColor: bgColor, color: textColor }}
+            style={{ 
+                backgroundColor: bgColor, 
+                color: textColor,
+                borderLeft: borderColor ? `4px solid ${borderColor}` : 'none'
+            }}
         >
             <header className={styles.header}>
                 <span className={styles.title}>{title}</span>

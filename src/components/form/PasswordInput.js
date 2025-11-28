@@ -14,6 +14,7 @@ function PasswordInput({
 }) {
     const [showPassword, setShowPassword] = useState(false);
     const [validation, setValidation] = useState({ errors: [], strength: "" });
+    const [hasTouched, setHasTouched] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -21,6 +22,10 @@ function PasswordInput({
 
     const handlePasswordChange = (e) => {
         const password = e.target.value;
+        
+        if (!hasTouched) {
+            setHasTouched(true);
+        }
 
         if (showValidation) {
             const validationResult = validatePassword(password);
@@ -34,6 +39,19 @@ function PasswordInput({
         handleOnChange(e);
     };
 
+    const handleFocus = () => {
+        if (!hasTouched && showValidation && value) {
+            setHasTouched(true);
+            const validationResult = validatePassword(value);
+            setValidation(validationResult);
+            if (onValidationChange) {
+                onValidationChange(validationResult.isValid);
+            }
+        }
+    };
+
+    const shouldShowValidation = showValidation && hasTouched;
+
     return (
         <div className={styles.form_control}>
             <label htmlFor={name}>{text}:</label>
@@ -44,6 +62,7 @@ function PasswordInput({
                     id={name}
                     placeholder={placeholder}
                     onChange={handlePasswordChange}
+                    onFocus={handleFocus}
                     value={value}
                     className={styles.password_input}
                 />
@@ -63,7 +82,7 @@ function PasswordInput({
                 </button>
             </div>
 
-            {showValidation && validation.errors.length > 0 && (
+            {shouldShowValidation && validation.errors.length > 0 && (
                 <div className={styles.password_validation}>
                     <p className={styles.validation_title}>
                         Sua senha deve conter:
@@ -78,7 +97,7 @@ function PasswordInput({
                 </div>
             )}
 
-            {showValidation && validation.errors.length === 0 && value && (
+            {shouldShowValidation && validation.errors.length === 0 && value && (
                 <div className={styles.password_validation}>
                     <p className={styles.validation_success}>
                         ✅ Senha {validation.strength}!

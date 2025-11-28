@@ -1,13 +1,35 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .auth_page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem 16px;
-    background: #f5f7fb;
-    min-height: calc(100vh - 120px);
+    justify-content: flex-start;
+    padding: 1rem 16px 2rem 16px;
+    background: transparent;
+    min-height: 0;
     text-align: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.logo_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    animation: fadeInUp 0.6s ease-out;
+    animation-delay: 0.1s;
+    animation-fill-mode: both;
 }
 
 .form_card {
@@ -18,32 +40,37 @@
     background-color: #ffffff;
     box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
     border: 1px solid rgba(0, 152, 105, 0.08);
+    animation: fadeInUp 0.6s ease-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
 }
 
 .form_card input[type="submit"] {
     padding: 12px 16px;
     margin-top: 24px;
     border-radius: 12px;
-    border: none;
-    background-color: #1f9a60;
+    border: 2px solid #047857;
+    background-color: #047857;
     font-size: 17px;
     font-weight: 600;
     color: white;
     width: 100%;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .form_card input[type="submit"]:hover {
-    background-color: #188453;
-    box-shadow: 0 12px 24px rgba(24, 132, 83, 0.25);
+    background-color: #065f46;
+    border-color: #065f46;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.25);
 }
 
 .form_card input[type="submit"]:active {
     transform: translateY(1px);
 }
 
-.form_card p {
+.form_card > p {
     margin-top: 20px;
     font-size: 14px;
     text-align: center;
@@ -51,13 +78,20 @@
 }
 
 .form_card p a {
-    color: #1f9a60;
+    color: #047857;
     font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form_card p a:hover {
+    color: #065f46;
+    text-decoration: underline;
 }
 
 .page_title {
     font-size: 2.2rem;
-    color: #0f172a;
+    color: #ffffff;
     font-weight: 700;
     text-align: center;
     margin-bottom: 2rem;
@@ -75,7 +109,7 @@
     width: 70px;
     height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, #009869, #00b377);
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
 }
 
 .error_message {
