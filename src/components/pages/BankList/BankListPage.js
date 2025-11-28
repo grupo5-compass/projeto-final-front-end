@@ -8,6 +8,7 @@ import useFlashMessage from "../../../hooks/useFlashMessage";
 import useInstitutions from "../../../hooks/useInstitutions";
 import useDashboardData from "../../../hooks/useDashboardData";
 import { formatBRL } from "../../../utils/format";
+import api from "../../../utils/api";
 
 import styles from "./BankListPage.module.css";
 
@@ -17,9 +18,10 @@ function BankListPage() {
     const navigate = useNavigate();
     const [modal, setModal] = useState({ open: false, bankId: null, action: null });
     const { getStatus, setStatus } = useVisibilityPrefs(user?.email || user?.nome || "user");
-    const { institutions, error } = useInstitutions(token);
+    const { institutions, error, refetch } = useInstitutions(token);
     const { dash } = useDashboardData(token);
     const errorShownRef = useRef(false);
+    const [connecting, setConnecting] = useState(false);
 
     useEffect(() => {
         if (!error || errorShownRef.current) return;
@@ -32,18 +34,17 @@ function BankListPage() {
     }, [error]);
 
     const banks = institutions.map((inst) => {
-        // Usa os mesmos valores do Dashboard
         const totalLimit = dash?.creditCardLimit || 0;
-        const totalSpent = dash?.billThisMonth || 0;
         const available = dash?.availableLimit || 0;
-        const percentUsed = totalLimit > 0 ? (totalSpent / totalLimit) * 100 : 0;
+        const used = Math.max(0, totalLimit - available);
+        const percentUsed = totalLimit > 0 ? (used / totalLimit) * 100 : 0;
 
         return {
             id: inst.id ?? inst._id,
             name: inst.nome ?? inst.name,
             status: getStatus(inst.id ?? inst._id),
             totalLimit,
-            totalSpent,
+            totalSpent: used,
             available,
             percentUsed,
         };
@@ -77,6 +78,21 @@ function BankListPage() {
         navigate("/user/dashboard");
     }
 
+    async function handleConnect() {
+        if (!token || connecting) return;
+        setConnecting(true);
+        try {
+            await api.post("/sync", {}, { headers: { Authorization: `Bearer ${token}` } });
+            setFlashMessage("Sincronização iniciada com sucesso.", "success");
+            await refetch();
+        } catch (err) {
+            const msg = err?.response?.data?.error || err?.response?.data?.message || "Falha ao iniciar sincronização.";
+            setFlashMessage(msg, "error");
+        } finally {
+            setConnecting(false);
+        }
+    }
+
     return (
         <section className={styles.wrapper}>
             <div className={styles.card}>
@@ -89,7 +105,7 @@ function BankListPage() {
                         <div className={styles.emptyState}>
                             <FiLink size={48} />
                             <p>Nenhuma instituição conectada ainda.</p>
-                            <button type="button" className={styles.ctaConnect}>
+                            <button type="button" className={styles.ctaConnect} onClick={handleConnect} disabled={connecting}>
                                 Conectar via Open Finance
                             </button>
                         </div>

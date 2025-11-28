@@ -61,14 +61,11 @@ function MyCards() {
 
             <div className={styles.cardsGrid}>
                 {cards.map((acc) => {
-                    // Calcula a proporção do limite deste cartão em relação ao total
-                    const cardLimit = acc.creditCardLimit || 0;
-                    const proportion = totalLimit > 0 ? cardLimit / totalLimit : 0;
-                    
-                    // Distribui os gastos proporcionalmente ao limite de cada cartão
-                    const spent = totalSpent * proportion;
-                    const available = Math.max(cardLimit - spent, 0);
-                    const usedPercent = cardLimit > 0 ? (spent / cardLimit) * 100 : 0;
+                    const cardLimit = Number(acc?.creditCardLimit || 0);
+                    const balance = Number(acc?.balance || 0);
+                    const used = Math.max(0, Math.abs(balance));
+                    const available = Math.max(0, cardLimit - used);
+                    const usedPercent = cardLimit > 0 ? (used / cardLimit) * 100 : 0;
 
                     return (
                         <article key={acc._id} className={styles.cardWrapper}>
@@ -108,7 +105,7 @@ function MyCards() {
 
                                     <div className={styles.usageValues}>
                                         <span className={styles.usageSpent}>
-                                            {formatBRL(spent)}
+                                            {formatBRL(used)}
                                         </span>
                                         <span className={styles.usageTotal}>
                                             {formatBRL(cardLimit)}
