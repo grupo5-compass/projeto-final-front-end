@@ -58,11 +58,14 @@ function Profile() {
     };
 
     return (
-        <section className={styles.profileContainer}>
-            <h1 className={styles.title}>Minha conta</h1>
-            <p className={styles.subtitle}>Gerencie suas informações e preferências</p>
+        <section className={styles.wrapper}>
+            <div className={styles.profileContainer}>
+                <div className={styles.hero}>
+                    <h1 className={styles.title}>Minha conta</h1>
+                    <p className={styles.subtitle}>Gerencie suas informações e preferências</p>
+                </div>
             
-            <div className={styles.profileGrid}>
+                <div className={styles.profileGrid}>
                 {/* Card de Perfil do Usuário */}
                 <div className={styles.profileCard}>
                     <div className={styles.profileHeader}>
@@ -82,10 +85,10 @@ function Profile() {
                                 <div className={styles.infoContent}>
                                     <span className={styles.infoLabel}>EMAIL</span>
                                     <span className={styles.infoValue}>{user.email}</span>
-                                </div>
-                            </div>
+                    </div>
+                </div>
                             
-                            <div className={styles.infoItem}>
+                    <div className={styles.infoItem}>
                                 <div className={styles.infoIcon}>
                                     <FiCreditCard size={18} />
                                 </div>
@@ -93,9 +96,9 @@ function Profile() {
                                     <span className={styles.infoLabel}>CPF</span>
                                     <span className={styles.infoValue}>{formatCPF(user.cpf)}</span>
                                 </div>
-                            </div>
+                    </div>
                             
-                            <div className={styles.infoItem}>
+                    <div className={styles.infoItem}>
                                 <div className={styles.infoIcon}>
                                     <FiCalendar size={18} />
                                 </div>
@@ -105,8 +108,8 @@ function Profile() {
                                         {user.createdAt 
                                             ? new Date(user.createdAt).toLocaleDateString("pt-BR")
                                             : "Data não disponível"}
-                                    </span>
-                                </div>
+                        </span>
+                    </div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +128,7 @@ function Profile() {
                                 <p className={styles.settingsText}>
                                     Ajuste suas preferências de senha. Recomenda-se a utilização da autenticação 2FA.
                                 </p>
-                            </div>
+            </div>
                         </div>
                         <div className={styles.buttonRow}>
                             <button 
@@ -173,6 +176,7 @@ function Profile() {
 
             <div className={styles.backButtonContainer}>
                 <Link to="/user/dashboard" className={styles.backButton}>Voltar para o início</Link>
+            </div>
             </div>
 
             {modal.open && (

@@ -48,12 +48,14 @@ function MyCards() {
     const totalAvailable = dash?.availableLimit || 0;
 
     return (
-        <section className={styles.page}>
-            <h1 className={styles.title}>Cartões conectados</h1>
-
-            <p className={styles.description}>
-                Aqui estão os cartões de crédito que você conectou via Open Finance.
-            </p>
+        <section className={styles.wrapper}>
+            <div className={styles.page}>
+                <div className={styles.hero}>
+                    <h1 className={styles.title}>Cartões conectados</h1>
+                    <p className={styles.description}>
+                        Aqui estão os cartões de crédito que você conectou via Open Finance.
+                    </p>
+                </div>
 
             {loading && (
                 <p className={styles.helperText}>Carregando cartões...</p>
@@ -140,8 +142,9 @@ function MyCards() {
             <div className={styles.footerActions}>
                 <Link to="/user/dashboard" className={styles.backButton}>
                     Voltar para o início
-                </Link>
+            </Link>
             </div>
+        </div>
         </section>
     );
 }

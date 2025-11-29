@@ -68,15 +68,15 @@ function Navbar() {
             ) : (
                 <ul className={styles.navbar_right}>
                     <li>
-                        <Link to="/login">
-                            <FiLogIn size={18} />
-                            Entrar
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/register">
                             <FiUserPlus size={18} />
                             Criar conta
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/login">
+                            <FiLogIn size={18} />
+                            Entrar
                         </Link>
                     </li>
                 </ul>

@@ -96,9 +96,10 @@ function BankListPage() {
     return (
         <section className={styles.wrapper}>
             <div className={styles.card}>
-                <h1 className={styles.title}>Instituições  conectadas</h1>
-                <p className={styles.subtitle}>Gerencie conexões e visualize limites agregados para cada instituição.</p>
-
+                <div className={styles.hero}>
+                    <h1 className={styles.title}>Instituições  conectadas</h1>
+                    <p className={styles.subtitle}>Gerencie conexões e visualize limites agregados para cada instituição.</p>
+                </div>
 
                 <div className={styles.content}>
                     {banks.length === 0 ? (

@@ -8,7 +8,6 @@ import {
     FiCalendar,
     FiCreditCard,
     FiClock,
-    FiHash,
 } from "react-icons/fi";
 import useCurrentUser from "../../../hooks/useCurrentUser";
 import useDashboardData from "../../../hooks/useDashboardData";
@@ -32,7 +31,8 @@ function Dashboard() {
     const groupedTransactions = groupTransactionsByPeriod(tx);
 
     return (
-        <section className={styles.dashboard}>
+        <section className={styles.wrapper}>
+            <div className={styles.dashboard}>
             <div className={styles.hero}>
                 <h1 className={styles.title}>Olá, {user.nome || "Usuário"}!</h1>
                 <p className={styles.subtitle}>
@@ -49,25 +49,27 @@ function Dashboard() {
                             <div className={`${styles.limitIcon} ${styles.iconAvailable}`}>
                                 <FiDollarSign size={20} />
                             </div>
-                            <span className={styles.limitLabel}>Limite Total Disponível</span>
+                            <span className={styles.limitLabel}>Limite total disponível</span>
                         </div>
                         <span className={`${styles.limitAmount} ${styles.amountAvailable}`}>{formatBRL(dash?.availableLimit || 0)}</span>
                     </div>
-                    <div className={`${styles.limitItem} ${styles.withDivider}`}>
+
+                    <div className={styles.limitItem}>
                         <div className={styles.limitHeader}>
                             <div className={`${styles.limitIcon} ${styles.iconTotal}`}>
                                 <FiPieChart size={20} />
                             </div>
-                            <span className={styles.limitLabel}>Limite Total dos Cartões</span>
+                            <span className={styles.limitLabel}>Limite total dos cartões</span>
                         </div>
                         <span className={`${styles.limitAmount} ${styles.amountTotal}`}>{formatBRL(dash?.creditCardLimit || 0)}</span>
                     </div>
-                    <div className={`${styles.limitItem} ${styles.withDivider}`}>
+
+                    <div className={styles.limitItem}>
                         <div className={styles.limitHeader}>
                             <div className={`${styles.limitIcon} ${styles.iconSpent}`}>
                                 <FiTrendingUp size={20} />
                             </div>
-                            <span className={styles.limitLabel}>Gastos do Mês</span>
+                            <span className={styles.limitLabel}>Gastos do mês</span>
                         </div>
                         <span className={`${styles.limitAmount} ${styles.amountSpent}`}>{formatBRL(dash?.billThisMonth || 0)}</span>
                     </div>
@@ -77,7 +79,7 @@ function Dashboard() {
             <div className={styles.transactions}>
                 <header className={styles.transactionsHeader}>
                     <div>
-                        <h2>Transações Recentes</h2>
+                        <h2>Transações recentes</h2>
                         <p>Últimas movimentações nas suas contas</p>
                     </div>
                     <button type="button" className={styles.linkButton}>
@@ -104,12 +106,12 @@ function Dashboard() {
                                 {group.transactions.map((t) => {
                                     const isDebit = t.type === 'debit' || t.type === 'DEBIT';
                                     return (
-                                        <li key={t._id}>
+                        <li key={t._id}>
                                             <div className={`${styles.txnIcon} ${isDebit ? styles.txnIconDebit : styles.txnIconCredit}`}>
                                                 {isDebit ? <FiArrowDownCircle /> : <FiArrowUpCircle />}
-                                            </div>
-                                            <div className={styles.txnBody}>
-                                                <strong>{t.description}</strong>
+                            </div>
+                            <div className={styles.txnBody}>
+                                <strong>{t.description}</strong>
                                                 <div className={styles.txnMeta}>
                                                     <span className={styles.txnTime}>
                                                         <FiClock size={12} />
@@ -123,20 +125,21 @@ function Dashboard() {
                                                         <span className={styles.txnInstallment}>
                                                             <FiCreditCard size={12} />
                                                             Parcelado {t.currentInstallment}/{t.totalInstallments}
-                                                        </span>
+                                </span>
                                                     )}
                                                 </div>
-                                            </div>
+                            </div>
                                             <span className={`${styles.txnAmount} ${isDebit ? styles.txnAmountDebit : styles.txnAmountCredit}`}>
                                                 {formatBRL(Math.abs(t.amount))}
-                                            </span>
-                                        </li>
+                            </span>
+                        </li>
                                     );
                                 })}
                             </ul>
                         </div>
                     ))}
                 </div>
+            </div>
             </div>
         </section>
     );
