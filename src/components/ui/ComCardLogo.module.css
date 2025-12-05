@@ -1,7 +1,7 @@
 .container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--spacing-md);
 }
 
 .textContainer {
@@ -15,42 +15,44 @@
 }
 
 .brandText {
-    font-size: calc(var(--logo-size, 64px) * 0.46875);
-    letter-spacing: -0.025em;
     font-family: system-ui, -apple-system, sans-serif;
+    font-size: calc(var(--logo-size, 64px) * 0.46875);
+    font-weight: normal;
+    letter-spacing: -0.025em;
     line-height: 1.1;
 }
 
 .brandPrimary {
-    color: #059669;
-    font-weight: 300;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 .brandPrimaryDark {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .brandAccent {
-    color: #f59e0b;
-    font-weight: 700;
+    font-weight: 800;
+    color: var(--color-accent);
 }
 
 .brandAccentDark {
-    color: #fbbf24;
+    font-weight: 700;
+    color: var(--color-accent-light);
 }
 
 .tagline {
     font-size: calc(var(--logo-size, 64px) * 0.1875);
+    font-weight: 700;
     letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #6b7280;
-    opacity: 0.7;
-    font-weight: 500;
     line-height: 1.2;
+    text-transform: uppercase;
+    color: #374151;
+    opacity: 1;
 }
 
 .taglineDark {
-    color: #ffffff;
+    font-weight: 500;
+    color: var(--color-white);
     opacity: 0.85;
 }
-

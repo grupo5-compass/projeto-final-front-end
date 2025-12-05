@@ -3,6 +3,7 @@ import Input from "../../form/Input";
 import PasswordInput from "../../form/PasswordInput";
 import styles from "../../form/Form.module.css";
 import { Link } from "react-router-dom";
+import { ComCardLogo } from "../../ui/ComCardLogo";
 
 /* Contexts */
 import { Context } from "../../../context/UserContext";
@@ -24,7 +25,9 @@ function Login() {
 
     return (
         <section className={styles.auth_page}>
-            <h1 className={styles.page_title}>Login</h1>
+            <div className={styles.logo_wrapper}>
+                <ComCardLogo variant="dark" size={80} showText={true} />
+            </div>
             <div className={styles.form_card}>
                 <form onSubmit={handleSubmit}>
                 <Input
